@@ -29,11 +29,14 @@ import config from "../capacitor.config";
 const app = createApp(App)
     .use(IonicVue)
     .use(router)
+    /* keycloak logic */
     .use(config.productionTip = false)
-    .use(authentication)
+    .use(authentication);
+/* needs fixing */
 use.$keycloak
     .init({ checkLoginIframe: false})
     .then(() => {
+        /* keycloak logic */
         router.isReady().then(() => {
             app.mount('#app');
         });
