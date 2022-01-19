@@ -1,0 +1,7 @@
+{
+  "name": "nextfrontendionicwithoutts",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
