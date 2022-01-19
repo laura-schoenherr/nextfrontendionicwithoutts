@@ -3,14 +3,38 @@
     <strong>{{ name }}</strong>
     <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
+  <div class="hello">
+    <h1>{{ msg }}</h1>
+    <p>
+      Welcome to the FridgiGo App! We are happy to see you!
+    </p>
+    <p>Please log in or sign up to use our app</p>
+    <div v-if="!isAuthenticated"><button @click="login">Login or Sign up</button></div>
+    <div v-else><button @click="logout">Logout</button></div>
+  </div>
 </template>
 
-<script lang="ts">
+<script>
+import Vue from 'vue'
 
 export default {
   name: 'ExploreContainer',
   props: {
-    name: String
+    name: String,
+    msg: String
+  },
+  computed: {
+    isAuthenticated: () => {
+      return Vue.$keycloak.authenticated
+    }
+  },
+  methods: {
+    login () {
+      Vue.$keycloak.login({ redirectUri: window.location.origin })
+    },
+    logout () {
+      Vue.$keycloak.logout({ redirectUri: window.location.origin })
+    }
   }
 }
 </script>
