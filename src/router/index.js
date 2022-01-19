@@ -46,7 +46,7 @@ const routes = [
                 meta: {
                     isAuthenticated: true
                 },
-                component: () => import('@/views/Form.vue')
+                component: () => import('@/views/RecipeForm.vue')
             },
             {
                 path: 'tab3/filter',
@@ -60,7 +60,7 @@ const routes = [
                 meta: {
                     isAuthenticated: true
                 },
-                component: () => import('@/views/Tab4.vue')
+                component: () => import('@/views/Tab4Page.vue')
             },
 
         ]
