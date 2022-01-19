@@ -1,6 +1,8 @@
 <template>
   <ion-app>
     <ion-router-outlet />
+    <img alt="FridgiGo logo" src="./assets/FridgiGoLogo250.png">
+    <HelloWorld msg="Welcome to the FridgiGo App"/>
   </ion-app>
 </template>
 

@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
+import authentication from "@/plugins/authentication";
 
 import { IonicVue } from '@ionic/vue';
 
@@ -22,11 +23,20 @@ import '@ionic/vue/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import config from "../capacitor.config";
+
 
 const app = createApp(App)
     .use(IonicVue)
-    .use(router);
+    .use(router)
+    .use(config.productionTip = false)
+    .use(authentication)
+use.$keycloak
+    .init({ checkLoginIframe: false})
+    .then(() => {
+        router.isReady().then(() => {
+            app.mount('#app');
+        });
+    })
 
-router.isReady().then(() => {
-    app.mount('#app');
-});
+
