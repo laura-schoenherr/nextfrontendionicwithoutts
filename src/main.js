@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
 import authentication from "@/plugins/authentication";
+import Keycloak from 'keycloak-js';
+
 
 import { IonicVue } from '@ionic/vue';
 
@@ -33,8 +35,9 @@ const app = createApp(App)
     .use(config.productionTip = false)
     .use(authentication);
 /* needs fixing */
-use.$keycloak
-    .init({ checkLoginIframe: false})
+const keycloak = Keycloak()
+
+keycloak.init({ checkLoginIframe: false})
     .then(() => {
         /* keycloak logic */
         router.isReady().then(() => {

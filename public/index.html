@@ -20,6 +20,18 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Ionic App" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+      <script src="keycloak.js"></script>
+      <script>
+          function initKeycloak() {
+              var keycloak = new Keycloak();
+              keycloak.init().then(function(authenticated) {
+                  alert(authenticated ? 'authenticated' : 'not authenticated');
+              }).catch(function() {
+                  alert('failed to initialize');
+              });
+          }
+      </script>
   </head>
 
   <body>
