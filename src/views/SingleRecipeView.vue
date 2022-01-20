@@ -26,6 +26,7 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonChip, IonIcon, IonLabel } from "@ionic/vue";
 import { defineComponent } from "vue";
 import { close } from "ionicons/icons";
+/* import axios from "axios"; */
 
 export default defineComponent( {
   name: "SingleRecipeView",
