@@ -1,9 +1,5 @@
 <template>
   <div id="container">
-    <strong>{{ name }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-  <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
       Welcome to the FridgiGo App! We are happy to see you!
@@ -15,7 +11,7 @@
 </template>
 
 <script>
-import Vue from 'vue'
+ /* import Vue from 'vue' */
 
 export default {
   name: 'ExploreContainer',
@@ -23,7 +19,7 @@ export default {
     name: String,
     msg: String
   },
-  computed: {
+  /* computed: {
     isAuthenticated: () => {
       return Vue.$keycloak.authenticated
     }
@@ -35,7 +31,7 @@ export default {
     logout () {
       Vue.$keycloak.logout({ redirectUri: window.location.origin })
     }
-  }
+  } */
 }
 </script>
 
