@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import TabsPage from '../views/TabsPage.vue'
-/* keycloak logic import vue from vue */
+/* keycloak logic */
+import Vue from 'vue'
 
 const routes = [
     {
@@ -71,7 +72,7 @@ const router = createRouter({
     routes
 })
 
-/* keycloak
+/* keycloak */
 router.beforeEach((to, from, next) => {
     if (to.meta.isAuthenticated) {
         // Get the actual url of the app, it's needed for Keycloak
@@ -94,7 +95,7 @@ router.beforeEach((to, from, next) => {
         }
     }
 })
-*/
+
 
 
 export default router
