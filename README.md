@@ -7,7 +7,13 @@ manual from ionic on how to remove typescript from the ionic framework.
 
 # Project setup
 
-### Installing Keycloak
+There are different components that will need to be installed on our computer in order
+to run the application properly. 
+
++ Keycloak
++ Google API Key fror Geolocation 
+
+## Installing Keycloak
 
 Download Keycloak
 
@@ -17,7 +23,7 @@ from the Keycloak website.
 
 After extracting you should have a directory named keycloak-16.1.0.
 
-### Start keycloak
+## Start keycloak
 
 From a terminal open the directory keycloak-16.1.0, then to start Keycloak run the following command.
 
@@ -31,17 +37,17 @@ On Windows run:
 bin\standalone.bat
 ```
 
-### Create an admin user
+## Create an admin user
 
 Keycloak does not come with a default admin user, which means before you can start using Keycloak you need to create an admin user.
 
 To do this open <http://localhost:8080/auth>, then fill in the form with your preferred username and password.
 
-### Login to the admin console
+## Login to the admin console
 Go to the Keycloak Admin Console and login with the username and password you created earlier.
 Found under <http://localhost:8080>
 
-### Create a realm
+## Create a realm
 
 Realms are like tenants in Keycloak. The main one is called Master and should remain as it is.
 So you need to crete a new realm for this application:
