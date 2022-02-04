@@ -6,7 +6,10 @@ import Vue from 'vue'
 const routes = [
     {
         path: '/',
-        redirect: '/tabs/tab1'
+        redirect: '/tabs/tab1',
+        meta: {
+            isAuthenticated: false
+        }
     },
     {
         path: '/tabs/',
