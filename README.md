@@ -59,7 +59,7 @@ So you need to crete a new realm for this application:
 3. Click ```Create```
 
 
-### Create a user
+## Create a user
 
 There is no user in the realm you just created, so you need to create one:
 1. Click ```Users``` in the left-hand menu
@@ -77,4 +77,4 @@ The user needs an initial password to log into the application. To create one do
 3. Click ```ON``` next to ```Temporary``` to prevent having to update
    the password on the first login. The button must then turn grey and show ```OFF```.
 
-### Secure the app
+## Secure the app
