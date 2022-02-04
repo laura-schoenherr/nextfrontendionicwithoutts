@@ -35,7 +35,28 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import ExploreContainer from '@/components/ExploreContainer.vue';
 
+
 export default  {
-  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage }
+  components: {
+    ExploreContainer,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonPage
+  },
+  computed: {
+    isAuthenticated: () => {
+      return vuekeycloak.authenticated
+    }
+  },
+  methods: {
+    login () {
+
+    }
+  }
 }
+
+
+
 </script>
