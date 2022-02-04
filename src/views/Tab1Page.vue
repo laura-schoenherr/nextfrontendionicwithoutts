@@ -22,10 +22,8 @@
      </ion-header>
       -->
 
-    
-      <ExploreContainer name="Einloggen" />
       <div class="home">
-        <HelloWorld msg="Welcome to the secured FridgiGo App"/>
+        <ExploreContainer msg="Welcome to the secured FridgiGo App"/>
       </div>
     </ion-content>
   </ion-page>
@@ -45,18 +43,5 @@ export default  {
     IonContent,
     IonPage
   },
-  computed: {
-    isAuthenticated: () => {
-      return vuekeycloak.authenticated
-    }
-  },
-  methods: {
-    login () {
-
-    }
-  }
 }
-
-
-
 </script>
