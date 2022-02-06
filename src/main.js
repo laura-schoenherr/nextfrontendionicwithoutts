@@ -1,9 +1,14 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
+
+/* security login feature */
 import authentication from "@/plugins/authentication";
 import Keycloak from 'keycloak-js';
 
+/* multilingual feature */
+import VueI18n from "vue-i18n";
+import messages from './lang';
 
 import { IonicVue } from '@ionic/vue';
 
@@ -27,21 +32,38 @@ import '@ionic/vue/css/display.css';
 import './theme/variables.css';
 
 
-
 const app = createApp(App)
     .use(IonicVue)
     .use(router)
     /* keycloak logic */
-    .use(authentication);
-/* needs fixing */
-const keycloak = Keycloak()
+    .use(Keycloak, '/keycloak.json')
+    .config.productionTip = false
+    .use(authentication)
+    .use(Keycloak, async () => {
+        return {
+            config: {
+                url: ('http://localhost:8080/auth/'),
+                realm: 'FridigGo',
+                clientId: 'fridgigoclient',
+            },
+            initOptions: {
+                onLoad: 'check-sso',
+                silentCheckSsoRedirectUri: window.location.origin + '/assets/silent-check-sso.html',
+            },
+        }
+    })
+    /* multilingual feature */
+    .use(VueI18n);
+    export const i18n = new VueI18n({
+    locale: 'de',
+    fallbackLocale: 'de',
+    messages
+    });
 
-keycloak.init({ checkLoginIframe: false})
-    .then(() => {
-        /* keycloak logic */
-        router.isReady().then(() => {
+
+ router.isReady().then(() => {
             app.mount('#app');
         });
-    })
+
 
 
