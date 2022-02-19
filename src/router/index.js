@@ -81,12 +81,12 @@ router.beforeEach((to, from, next) => {
     if (to.meta.isAuthenticated) {
         // Get the actual url of the app, it's needed for Keycloak
         const basePath = window.location.toString()
-        if (!Vue.keycloak.authenticated) {
+        if (!Vue.$keycloak.authenticated) {
             // The page is protected and the user is not authenticated. Force a login.
-            Vue.keycloak.login({redirectUri: basePath.slice(0, -1) + to.path})
-        } else if (Vue.keycloak.hasResourceRole('default-roles-fridiggo')) {
+            Vue.$keycloak.login({redirectUri: basePath.slice(0, -1) + to.path})
+        } else if (Vue.$keycloak.hasResourceRole('default-roles-fridiggo')) {
             // The user was authenticated, and has the app role (is authorized). Update the token.
-            Vue.keycloak.updateToken(70)
+            Vue.$keycloak.updateToken(70)
                 .then(() => {
                     next()
                 })
