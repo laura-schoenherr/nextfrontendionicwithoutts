@@ -1,4 +1,4 @@
-import Vue from 'vue'
+/*import Vue from 'vue'*/
 import Keycloak from 'keycloak-js'
 
 const options = {
@@ -26,6 +26,6 @@ Plugin.install = Vue => {
     })
 }
 
-Vue.use(Plugin)
+
 
 export default Plugin

@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import TabsPage from '../views/TabsPage.vue'
 /* keycloak logic */
-import Vue from 'vue'
+import Vue from 'vue';
+
 
 const routes = [
     {

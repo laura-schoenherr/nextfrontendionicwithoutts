@@ -37,7 +37,6 @@ const app = createApp(App)
     .use(router)
     /* keycloak logic */
     .use(Keycloak, '/keycloak.json')
-    .config.productionTip = false
     .use(authentication)
     .use(Keycloak, async () => {
         return {
@@ -52,6 +51,25 @@ const app = createApp(App)
             },
         }
     })
+
+var logoutOptions = { redirectUri : https://localhost:8080 };
+console.log("--> log: logoutOptions  ", logoutOptions  );
+
+Keycloak.logout(logoutOptions).then((success) => {
+    console.log("--> log: logout success ", success );
+}).catch((error) => {
+    console.log("--> log: logout error ", error );
+});
+store.commit("logout");
+}
+}).catch(() => {
+    console.log("--> log: catch interval");
+});
+}, 10000)
+}).catch(() => {
+    console.log("-->log: Failed to authenticate");
+});
+
     /* multilingual feature */
     .use(VueI18n);
     export const i18n = new VueI18n({
