@@ -2,14 +2,6 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
 
-/* security login feature */
-import authentication from "@/plugins/authentication";
-import Keycloak from 'keycloak-js';
-
-/* multilingual feature */
-import VueI18n from "vue-i18n";
-import messages from './lang';
-
 import { IonicVue } from '@ionic/vue';
 
 /* Core CSS required for Ionic components to work properly */
@@ -30,15 +22,18 @@ import '@ionic/vue/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-
+import {vueKeycloak} from "@baloise/vue-keycloak";
 
 const app = createApp(App)
     .use(IonicVue)
     .use(router)
+
+    /* nach Bedarf */
+    /*.use(vueKeycloak, '/keycloak.json')*/
+
     /* keycloak logic */
-    .use(Keycloak, '/keycloak.json')
-    .use(authentication)
-    .use(Keycloak, async () => {
+    .use(vueKeycloak, '/keycloak.json')
+    .use(vueKeycloak, async () => {
         return {
             config: {
                 url: ('http://localhost:8080/auth/'),
@@ -51,32 +46,6 @@ const app = createApp(App)
             },
         }
     })
-
-var logoutOptions = { redirectUri : https://localhost:8080 };
-console.log("--> log: logoutOptions  ", logoutOptions  );
-
-Keycloak.logout(logoutOptions).then((success) => {
-    console.log("--> log: logout success ", success );
-}).catch((error) => {
-    console.log("--> log: logout error ", error );
-});
-store.commit("logout");
-}
-}).catch(() => {
-    console.log("--> log: catch interval");
-});
-}, 10000)
-}).catch(() => {
-    console.log("-->log: Failed to authenticate");
-});
-
-    /* multilingual feature */
-    .use(VueI18n);
-    export const i18n = new VueI18n({
-    locale: 'de',
-    fallbackLocale: 'de',
-    messages
-    });
 
 
  router.isReady().then(() => {
