@@ -2,6 +2,10 @@
 Frontend for FridgiGo Application 
 created with vue.js and ionic Framework without Typescript but just with Javascript
 
+Until now the app just contains the keycloak instance, opening a login page when 
+the app is opened. It does not have any content pages though.
+
+
 [Here](https://ionicframework.com/docs/vue/quickstart#build-your-way-with-typescript-or-javascript) is the link to the 
 manual from ionic on how to remove typescript from the ionic framework.
 
