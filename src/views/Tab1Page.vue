@@ -22,10 +22,8 @@
      </ion-header>
       -->
 
-    
-      <ExploreContainer name="Einloggen" />
       <div class="home">
-        <HelloWorld msg="Welcome to the secured FridgiGo App"/>
+        <ExploreContainer msg="Welcome to the secured FridgiGo App"/>
       </div>
     </ion-content>
   </ion-page>
@@ -35,7 +33,15 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import ExploreContainer from '@/components/ExploreContainer.vue';
 
+
 export default  {
-  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage }
+  components: {
+    ExploreContainer,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonPage
+  },
 }
 </script>

@@ -11,15 +11,14 @@
 </template>
 
 <script>
- /* import Vue from 'vue' */
+ import Vue from 'vue'
 
 export default {
   name: 'ExploreContainer',
   props: {
-    name: String,
     msg: String
   },
-  /* computed: {
+  computed: {
     isAuthenticated: () => {
       return Vue.$keycloak.authenticated
     }
@@ -31,7 +30,7 @@ export default {
     logout () {
       Vue.$keycloak.logout({ redirectUri: window.location.origin })
     }
-  } */
+  }
 }
 </script>
 

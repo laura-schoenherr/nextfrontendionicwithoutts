@@ -1,9 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
-import authentication from "@/plugins/authentication";
-import Keycloak from 'keycloak-js';
-
 
 import { IonicVue } from '@ionic/vue';
 
@@ -25,23 +22,30 @@ import '@ionic/vue/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-
-
+import {vueKeycloak} from "@baloise/vue-keycloak";
 
 const app = createApp(App)
     .use(IonicVue)
     .use(router)
-    /* keycloak logic */
-    .use(authentication);
-/* needs fixing */
-const keycloak = Keycloak()
+/* nach Bedarf */
+.use(vueKeycloak, '/keycloak.json')
 
-keycloak.init({ checkLoginIframe: false})
-    .then(() => {
-        /* keycloak logic */
-        router.isReady().then(() => {
-            app.mount('#app');
-        });
+    .use(vueKeycloak, async () => {
+        return {
+            config: {
+                url: ('http://localhost:8080/auth/'),
+                realm: 'FridigGo',
+                clientId: 'fridgigoclient',
+            },
+            initOptions: {
+                onLoad: 'check-sso',
+                silentCheckSsoRedirectUri: window.location.origin + '/assets/silent-check-sso.html',
+            },
+        }
     })
+/*.config.globalProperties.$keycloak = keycloak;*/
 
+router.isReady().then(() => {
+    app.mount('#app');
+});
 
